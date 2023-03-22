@@ -19,29 +19,114 @@
     }
 
 
-    main {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    body {
         width: 100%;
         height: 100vh;
+        display: flex;
+        justify-content: center;
         background-color: #1E1E1E;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    main {
+        width: 100%;
+        padding: 32px;
+
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    @media (max-width: 576px) {
+        .resume-boxes {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (min-width: 576px) and (max-width: 768px) {
+        .resume-boxes {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (min-width: 768px) and (max-width: 992px) {
+        .resume-boxes {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    @media (min-width: 992px) and (max-width: 1200px) {
+        .resume-boxes {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    @media (min-width: 1200px) {
+        main {
+            width: 1200px;
+        }
+
+        .resume-boxes {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    .home-status {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    .date-status {
+        font-size: 14px;
+        color: white;
+    }
+
+    .user-status {
+        display: flex;
+        gap: 12px;
+        padding: 8px 12px;
+        border-radius: 4px;
+    }
+
+    .user-status:hover {
+        cursor: pointer;
+        background-color: #333333;
+    }
+
+    .user-status-imagem {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: #FFFFFF;
+    }
+
+    .user-status-name .name{
+        font-size: 14px;
+        color: white;
+    }
+
+    .user-status-name .email{
+        font-size: 11px;
+        color: #6E6D69;
+    }
+
+    .resume-boxes {
+        display: grid;
+        place-content: center;
+        gap: 16px;
     }
 
     .box {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 8px;
-
-        width: 160px;
         height: 90px;
         border-radius: 6px;
         padding: 16px;
         background-color: #0A0A0A;
     }
 
-    .box:hover {
+    .box:hover  {
         cursor: pointer;
     }
 
@@ -58,7 +143,7 @@
         justify-content: space-between;
 
         font-family: 'Open Sans', sans-serif;
-        font-size: 10px;
+        font-size: 12px;
         font-weight: 500;
         color: #6E6D69;
     }
@@ -67,22 +152,20 @@
         display: flex;
         align-items: center;
         gap: 2px;
-        font-size: 8px;
-        color: #EB5757;
+        font-size: 10px;
+        color: white;
     }
 
     .average {
         display: flex;
         gap: 4px;
         align-self: flex-start;
-
-        font-family: 'Montserrat', sans-serif;
         font-weight: 700;
     }
 
     .currency {
         color: #6E6D69;
-        font-size: 11px;
+        font-size: 12px;
     }
 
     .value {
@@ -93,45 +176,112 @@
     .f-16 {
         font-size: 8px;
     }
+
+    .mb-20 {
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        color: #FFFFFF;
+        font-size: 24;
+        font-weight: 700;
+    }
 </style>
 
 <body>
     <main>
-        <div class="box">
-            <div class="box-content">
-                <div class="title">
-                    <p>Media de gastos</p>
-                    <p class="percent">
-                        <span class="material-symbols-sharp f-16">expand_more</span>
-                        -20%
-                    </p>
-                </div>
-                <div class="average">
-                    <span class="currency">R$</span>
-                    <p class="value">1.212,00</p>
+        <div class="home-status">
+            <p class="date-status"></p>
+            <div class="user-status">
+                <div class="user-status-imagem"></div>
+                <div class="user-status-name">
+                    <p class="name">Gustavo Ramires</p>
+                    <p class="email">guramires@icloud.com</p>
                 </div>
             </div>
+        </div>
+        <div class="resume-content">
+            <h2 class="mb-20">Resumo</h2>
+            <div class="resume-boxes">
+                <div class="box">
+                    <div class="box-content">
+                        <div class="title">
+                            <p>Media de gastos</p>
+                            <p class="percent">
+                                <span class="material-symbols-sharp f-16">expand_more</span>
+                                -20%
+                            </p>
+                        </div>
+                        <div class="average">
+                            <span class="currency">R$</span>
+                            <p class="value">1.212,00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="box-content">
+                        <div class="title">
+                            <p>Media de gastos</p>
+                            <p class="percent">
+                                <span class="material-symbols-sharp f-16">expand_more</span>
+                                -20%
+                            </p>
+                        </div>
+                        <div class="average">
+                            <span class="currency">R$</span>
+                            <p class="value">1.212,00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="box-content">
+                        <div class="title">
+                            <p>Media de gastos</p>
+                            <p class="percent">
+                                <span id="chevron" class="material-symbols-sharp f-16">expand_more</span>
+                                -20%
+                            </p>
+                        </div>
+                        <div class="average">
+                            <span class="currency">R$</span>
+                            <p class="value">1.212,00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="box-content">
+                        <div class="title">
+                            <p>Media de gastos</p>
+                            <p class="percent">
+                                <span id="chevron" class="material-symbols-sharp f-16">expand_more</span>
+                                -20%
+                            </p>
+                        </div>
+                        <div class="average">
+                            <span class="currency">R$</span>
+                            <p class="value">1.212,00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="table-content">
+            <h2 class="mb-20">Tabela de gastos</h2>
+            <table>
+
+            </table>
         </div>
     </main>
     <script>
         let box = document.getElementsByClassName("box")[0]
         let domValue = document.getElementsByClassName("value")[0]
-        const apiURL = "http://localhost:8000/?show=all"
+
         const randomNumber = async () => {
             const response = await fetch(apiURL)
             const data = await response.json()
-            let qnt = data.length
-            let total = 0
-            for (const i of data) {
-                total += i.valor
-            }
-            const value =  average(total, qnt).toFixed(3)
-            console.log()
-
+            console.log("entrei")
             domValue.textContent = `${value},00`
         }
-
-        const average = (total, qnt) => total / qnt
 
         box.addEventListener("click", randomNumber)
     </script>
