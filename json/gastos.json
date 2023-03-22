@@ -2,7 +2,25 @@
     {
         "id": 1,
         "nome": "cabo de rede",
-        "valor": 10,
-        "data" : 2100
+        "valor": 1.234,
+        "data" : 2023
+    },
+    {
+        "id": 2,
+        "nome": "cabo de rede",
+        "valor": 5.236,
+        "data" : 2023
+    },
+    {
+        "id": 3,
+        "nome": "cabo de rede",
+        "valor": 4.634,
+        "data" : 2023
+    },
+    {
+        "id": 4,
+        "nome": "cabo de rede",
+        "valor": 4.634,
+        "data" : 2023
     }
 ]
