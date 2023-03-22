@@ -126,7 +126,7 @@
         background-color: #0A0A0A;
     }
 
-    .box:hover  {
+    .box:hover {
         cursor: pointer;
     }
 
@@ -275,14 +275,35 @@
     <script>
         let box = document.getElementsByClassName("box")[0]
         let domValue = document.getElementsByClassName("value")[0]
+        let percent = document.getElementsByClassName("percent")[0]
+        let date = document.getElementsByClassName("date-status")[0]
+        let chevron = document.getElementById("chevron")
 
-        const randomNumber = async () => {
-            const response = await fetch(apiURL)
-            const data = await response.json()
-            console.log("entrei")
-            domValue.textContent = `${value},00`
+        const getFormatedDate = (date) => {
+            let moty = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"]
+            let dotw = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"]
+
+            return `${dotw[date.getDay()]}, ${date.getDate()} ${moty[date.getMonth()]} ${date.getFullYear()}`
         }
 
+        let homeDate = getFormatedDate(new Date())
+        date.textContent = homeDate
+        console.log(homeDate)
+        const randomNumber = async () => {
+            // const response = await fetch(apiURL)
+            // const data = await response.json()
+            console.log("entrei")
+            let value = 30
+            if (value > 0) {
+                chevron.textContent = "expand_less"
+                percent.style.color = "#219653"
+            } else {
+                chevron.textContent = "expand_more"
+                percent.style.color = "#EB5757"
+            }
+
+            domValue.textContent = `${value},00`
+        }
         box.addEventListener("click", randomNumber)
     </script>
 </body>
