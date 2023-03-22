@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20,400,0,0" />
+    <title>Teste Glass</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
+    main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+        background-color: #1E1E1E;
+    }
+
+    .box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+
+        width: 160px;
+        height: 90px;
+        border-radius: 6px;
+        padding: 16px;
+        background-color: #0A0A0A;
+    }
+
+    .box:hover{
+        cursor: pointer;
+    }
+
+    .box-content {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .title {
+        display: flex;
+        justify-content: space-between;
+
+        font-family: 'Open Sans', sans-serif;
+        font-size: 10px;
+        font-weight: 500;
+        color: #6E6D69;
+    }
+
+    .percent {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        font-size: 8px;
+        color: #EB5757;
+    }
+
+    .average {
+        display: flex;
+        gap: 4px;
+        align-self: flex-start;
+
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+    }
+
+    .currency {
+        color: #6E6D69;
+        font-size: 11px;
+    }
+
+    .value {
+        color: white;
+        font-size: 20px;
+    }
+
+    .f-16 {
+        font-size: 8px;
+    }
+</style>
+
+<body>
+    <main>
+        <div class="box">
+            <div class="box-content">
+                <div class="title">
+                    <p>Media de gastos</p>
+                    <p class="percent">
+                        <span class="material-symbols-sharp f-16">expand_more</span>
+                        -20%
+                    </p>
+                </div>
+                <div class="average">
+                    <span class="currency">R$</span>
+                    <p class="value">1.212,00</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        let box = document.getElementsByClassName("box")[0]
+        let domValue = document.getElementsByClassName("value")[0]
+
+        const randomNumber = async () => {
+            const response = await fetch(apiURL)
+            const data = await response.json()
+            console.log("entrei")
+            domValue.textContent = `${value},00`
+        }
+
+        box.addEventListener("click", randomNumber)
+    </script>
+</body>
+
+</html>
